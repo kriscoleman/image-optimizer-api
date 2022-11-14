@@ -24,22 +24,22 @@ describe('optimizer and get-image-buffer-from-url integration', () => {
     const regressionBenchmark = 2642;
     expect((await results?.buffer)?.byteLength).toBeLessThanOrEqual(regressionBenchmark);
   });
+});
 
-  describe('validation', () => {
-    it('invalidates non image files', async () => {
-      imageUrl = 'https://nodejs.org/dist/v18.12.1/node-v18.12.1-darwin-x64.tar.gz';
-      expect(optimizer(imageUrl)).rejects.toThrow('invalid request');
+describe('optimizer and validator integration', () => {
+  it('invalidates non image files', async () => {
+    imageUrl = 'https://nodejs.org/dist/v18.12.1/node-v18.12.1-darwin-x64.tar.gz';
+    expect(optimizer(imageUrl)).rejects.toThrow('invalid request');
 
-      imageUrl = 'https://nodejs.org/dist/v18.12.1/node-v18.12.1-darwin-x64.zip';
-      expect(optimizer(imageUrl)).rejects.toThrow('invalid request');
+    imageUrl = 'https://nodejs.org/dist/v18.12.1/node-v18.12.1-darwin-x64.zip';
+    expect(optimizer(imageUrl)).rejects.toThrow('invalid request');
 
-      imageUrl = 'https://nodejs.org/dist/v18.12.1/node-v18.12.1-darwin-x64.msi';
-      expect(optimizer(imageUrl)).rejects.toThrow('invalid request');
-    });
+    imageUrl = 'https://nodejs.org/dist/v18.12.1/node-v18.12.1-darwin-x64.msi';
+    expect(optimizer(imageUrl)).rejects.toThrow('invalid request');
+  });
 
-    it('invalidates non image dataUrls', async () => {
-      imageUrl = 'data:text/html,base64;ARUSL1ius90k';
-      expect(optimizer(imageUrl)).rejects.toThrow('invalid request');
-    });
+  it('invalidates non image dataUrls', async () => {
+    imageUrl = 'data:text/html,base64;ARUSL1ius90k';
+    expect(optimizer(imageUrl)).rejects.toThrow('invalid request');
   });
 });
