@@ -15,9 +15,9 @@ export const main = async (event: any, context: any) => {
     var method = event.httpMethod;
 
     if (method === 'GET') {
-      // TODO: get image from request
-      if (event.path === '/') {
-        const optimizedImage = await optimizer('');
+      if (event.startsWith === '/web/') {
+        var imageSrc = event['queryStringParameters']['src'];
+        const optimizedImage = await optimizer(imageSrc);
         return {
           statusCode: 200,
           headers: {},
