@@ -37,7 +37,7 @@ const optimizer = async (imageUri: string) => {
   const mimeType = imageUri.startsWith('http') ? getMimeTypeFromHttpUrl(imageUri) : getMimeTypeFromDataUrl(imageUri);
 
   return {
-    buffer: result.toBuffer(),
+    buffer: result.toBuffer() as Promise<Buffer>,
     mimeType: mimeType,
   };
 };

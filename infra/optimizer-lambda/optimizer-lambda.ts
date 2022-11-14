@@ -21,7 +21,7 @@ export const main = async (event: any, context: any) => {
         return {
           statusCode: 200,
           headers: {},
-          body: `data:${optimizedImage?.mimeType};base64,${optimizedImage?.buffer.toString('base64')}`,
+          body: `data:${optimizedImage?.mimeType};base64,${(await optimizedImage?.buffer)?.toString('base64')}`,
         };
       }
     }
