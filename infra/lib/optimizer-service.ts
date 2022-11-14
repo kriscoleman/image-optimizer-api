@@ -31,7 +31,7 @@ export class OptimizerService extends Construct {
     });
 
     const optimizeImageIntegration = new apigateway.LambdaIntegration(handler, {
-      requestTemplates: { 'application/json': '{ "statusCode": "200" }' },
+      requestTemplates: { 'image/png': '{ "statusCode": "200" }' },
     });
 
     api.root.addMethod('GET', optimizeImageIntegration);
