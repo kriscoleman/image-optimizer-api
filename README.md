@@ -8,6 +8,10 @@ In order to provide the optimization as a service that customers can consume in 
 
 The rest api is implemented as a serverless lambda function behind a API gateway, written in AWK CDK.
 
+## How to use the Rest API service once deployed
+
+`curl -X GET 'https://{GUID}.execute-api.{REGION}.amazonaws.com/prod/web/{yourDesiredImageName}.{yourDesiredFileExtension}?src={dataUrl|httpUrl}'`
+
 ## Project Outline
 
 - `--./`: root is the location for the highest level files in the mono-repo (root package.jso)

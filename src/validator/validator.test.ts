@@ -22,12 +22,13 @@ describe('validator', () => {
 
   it('invalidates dataUrls without proper image types', () => {
     const imageTypes = [
-      { type: 'avif', expectedToBeValid: true },
+      { type: 'avif', expectedValidity: true },
       { type: 'gif', expectedToBeValid: true },
       { type: 'jpeg', expectedToBeValid: true },
       { type: 'jpg', expectedToBeValid: true },
       { type: 'png', expectedToBeValid: true },
       { type: 'webp', expectedToBeValid: true },
+      // now put in some that should fail, too
       { type: 'mov', expectedToBeValid: false },
       { type: 'mp3', expectedToBeValid: false },
       { type: 'exe', expectedToBeValid: false },
@@ -36,7 +37,7 @@ describe('validator', () => {
     ];
 
     imageTypes.forEach((t) => {
-      expect(validator(`data:image/${t.type};key=value;base64,UESlk3us3nllSSE`)).toBe(t.expectedToBeValid);
+      expect(validator(`data:image/${t.type};key=value;base64,UESlk3us3nllSSE`)).toBe(t.expectedValidity);
     });
   });
 
