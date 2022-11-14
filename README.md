@@ -8,6 +8,8 @@ In order to provide the optimization as a service that customers can consume in 
 
 The rest api is implemented as a serverless lambda function behind a API gateway, written in AWK CDK.
 
+For local testing, express has been implemented to host the api from your local machine.
+
 ## Getting Started
 
 Assuming you already have node installed on your machine, install everything from the root folder:
