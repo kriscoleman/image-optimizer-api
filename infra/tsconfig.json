@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "ES2016",
     "module": "commonjs",
     "lib": [
       "es2018"
@@ -8,6 +8,7 @@
     "declaration": true,
     "strict": true,
     "noImplicitAny": true,
+    "noEmit": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
@@ -20,6 +21,7 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
+    "moduleResolution": "node",
     "typeRoots": [
       "./node_modules/@types"
     ]

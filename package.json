@@ -1,7 +1,7 @@
 {
-  "name": "image-optimizer-api",
+  "name": "image-optimizer",
   "version": "1.0.0",
-  "description": "An image optimizer api",
+  "description": "An image optimizer",
   "main": "dist/optimizer.js",
   "scripts": {
     "build": "concurrently \"npm run build:core\" \"npm run build:submodules\"",
@@ -33,7 +33,8 @@
     "typescript": "^4.8.4"
   },
   "workspaces": [
-    "infra/"
+    "infra/",
+    "express/"
   ],
   "dependencies": {
     "axios": "^1.1.3",

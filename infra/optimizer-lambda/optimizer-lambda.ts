@@ -18,10 +18,13 @@ export const main = async (event: any, context: any) => {
       if (event.startsWith === '/web/') {
         var imageSrc = event['queryStringParameters']['src'];
         const optimizedImage = await optimizer(imageSrc);
+        const buffer = new Uint8Array((await optimizedImage?.buffer)?.buffer || []);
         return {
           statusCode: 200,
           headers: {},
-          body: `data:${optimizedImage?.mimeType};base64,${(await optimizedImage?.buffer)?.toString('base64')}`,
+          contentType: `image/${optimizedImage?.mimeType}`,
+          contentLength: buffer.length,
+          body: buffer,
         };
       }
     }
