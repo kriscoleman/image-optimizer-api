@@ -23,17 +23,17 @@ describe('validator', () => {
   it('invalidates dataUrls without proper image types', () => {
     const imageTypes = [
       { type: 'avif', expectedValidity: true },
-      { type: 'gif', expectedToBeValid: true },
-      { type: 'jpeg', expectedToBeValid: true },
-      { type: 'jpg', expectedToBeValid: true },
-      { type: 'png', expectedToBeValid: true },
-      { type: 'webp', expectedToBeValid: true },
+      { type: 'gif', expectedValidity: true },
+      { type: 'jpeg', expectedValidity: true },
+      { type: 'jpg', expectedValidity: true },
+      { type: 'png', expectedValidity: true },
+      { type: 'webp', expectedValidity: true },
       // now put in some that should fail, too
-      { type: 'mov', expectedToBeValid: false },
-      { type: 'mp3', expectedToBeValid: false },
-      { type: 'exe', expectedToBeValid: false },
-      { type: 'zip', expectedToBeValid: false },
-      { type: 'tar.gz', expectedToBeValid: false },
+      { type: 'mov', expectedValidity: false },
+      { type: 'mp3', expectedValidity: false },
+      { type: 'exe', expectedValidity: false },
+      { type: 'zip', expectedValidity: false },
+      { type: 'tar.gz', expectedValidity: false },
     ];
 
     imageTypes.forEach((t) => {
