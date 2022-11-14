@@ -38,8 +38,4 @@ describe('optimizer', () => {
     const results = await optimizer(undefined!);
     expect(results).toBeFalsy();
   });
-
-  // it('returns the image as a dataUrl', () => {
-  // const results = optimizer(tinyImage);
-  // });
 });
