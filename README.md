@@ -1,6 +1,6 @@
 # image-optimizer-api
 
-An serverless api for optimizing images
+A serverless api for optimizing images
 
 It uses sharp (a popular npm package which uses libvips to reliably resize/optimize images) to optimize a dataUrl or http url image to reduce file size.
 
